@@ -10,8 +10,6 @@ import ErrorIndicator from "../error-indicator";
 import { SwapiServiceProvider } from "../swapi-service-context";
 import { PeoplePage, PlanetsPage, StarshipPage } from "../pages";
 import { StarshipDetails } from "../sw-components";
-import Login from "../pages/login-page";
-import Secret from "../pages/secret-page";
 
 export default class App extends Component {
   swapiService = new SwapiService();
@@ -43,21 +41,6 @@ export default class App extends Component {
               <Route path="/people/:id?" component={PeoplePage} />
               <Route path="/planets/" component={PlanetsPage} />
               <Route path="/starships/" exact component={StarshipPage} />
-              <Route
-                path="/login"
-                exact
-                render={() => (
-                  <Login
-                    isLoggedIn={this.state.isLoggedIn}
-                    onLogin={this.onLogin}
-                  />
-                )}
-              />
-              <Route
-                path="/secret"
-                exact
-                render={() => <Secret isLoggedIn={this.state.isLoggedIn} />}
-              />
               <Route
                 path="/starships/:id"
                 render={({ match }) => {
